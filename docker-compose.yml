@@ -1,0 +1,25 @@
+# Este arquivo é usado apenas para desenvolvimento da plataforma
+version: "3"
+volumes:
+  db_data: {}
+services:
+  web:
+    image: laury/mapa-transportes-publicos:web-dev
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: python /usr/src/app/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/app
+  db:
+    image: laury/mapa-transportes-publicos:db-dev
+    build:
+      context: ./
+      dockerfile: Dockerfile-db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 'senha'
+      POSTGRES_DB: 'mapa'

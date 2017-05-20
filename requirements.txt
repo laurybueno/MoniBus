@@ -1,0 +1,5 @@
+Django==1.11.1
+psycopg2
+
+# Development tools
+ipdb
