@@ -13,6 +13,11 @@ services:
       - "8000:8000"
     volumes:
       - .:/usr/src/app
+    environment:
+      DB_HOST: 'db'
+      DB_NAME: 'mapa'
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'senha'
   db:
     image: laury/mapa-transportes-publicos:db-dev
     build:
