@@ -11,6 +11,7 @@ RUN apt-get update \
 
 ENV CPLUS_INCLUDE_PATH /usr/include/gdal
 ENV C_INCLUDE_PATH /usr/include/gdal
+ENV PYTHONUNBUFFERED=0
 
 WORKDIR /usr/src/app
 COPY requirements.txt ./
