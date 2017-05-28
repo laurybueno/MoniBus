@@ -23,7 +23,7 @@ class Command(BaseCommand):
         files_scanned = 0
         warnings.filterwarnings("ignore")  # ignore timezone warnings
         try:
-            for json_file in files:
+            for index, json_file in enumerate(files):
                 with open(json_file) as f:
                     files_scanned += 1
                     try:
@@ -43,6 +43,10 @@ class Command(BaseCommand):
                     reg.codigoLinha = re.match('.*?([0-9]+)$', arquivo['meta'][0]).group(1)
                     reg.save()
                     count += 1
+                if index % 10 == 0:
+                    print(str(datetime.datetime.now()))
+                    print('Arquivos lidos: ' + str(index))
+                    print('Arquivos no total: ' + str(len(files)) + '\n')
         except Exception as e:
             print(e)
 
