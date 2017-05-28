@@ -18,6 +18,7 @@ services:
       DB_NAME: 'mapa'
       DB_USER: 'postgres'
       DB_PASSWORD: 'senha'
+      DEBUG: 'True'
   db:
     image: laury/mapa-transportes-publicos:db-dev
     build:
