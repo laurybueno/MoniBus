@@ -28,6 +28,7 @@ class Command(BaseCommand):
                     files_scanned += 1
                     try:
                         arquivo = json.load(f)
+                        # FIXME: next line triggers an error if the path has a '-'
                         arquivo['meta'] = json_file[:-5].split('-')
                     except Exception as e:
                         print(e)
@@ -43,7 +44,7 @@ class Command(BaseCommand):
                     reg.codigoLinha = re.match('.*?([0-9]+)$', arquivo['meta'][0]).group(1)
                     reg.save()
                     count += 1
-                if index % 10 == 0:
+                if index % 1000 == 0:
                     print(str(datetime.datetime.now()))
                     print('Arquivos lidos: ' + str(index))
                     print('Arquivos no total: ' + str(len(files)) + '\n')
