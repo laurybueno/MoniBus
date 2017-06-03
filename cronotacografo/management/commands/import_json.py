@@ -30,6 +30,7 @@ class Command(BaseCommand):
                         arquivo = json.load(f)
                         # FIXME: next line triggers an error if the path has a '-'
                         arquivo['meta'] = json_file[:-5].split('-')
+                        os.remove(json_file)
                     except Exception as e:
                         print(e)
                         continue
