@@ -3,6 +3,7 @@
 
 # Inicie os processos do Gunicorn
 echo Iniciando o Gunicorn
-exec gunicorn mapa.wsgi:application \
+gunicorn mapa.wsgi:application \
+    -k gevent \
     --bind 0.0.0.0:8000 \
-    --workers 3
+    --workers 16
