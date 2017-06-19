@@ -19,6 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+VOLUME /usr/src/app/static
+
 EXPOSE 8000
 
 CMD ["./start.sh"]
