@@ -4,7 +4,7 @@ volumes:
   db_data: {}
 services:
   web:
-    image: laury/mapa-transportes-publicos:web-dev
+    image: laury/monibus:web-dev
     build:
       context: ./
       dockerfile: Dockerfile
@@ -20,7 +20,7 @@ services:
       DB_PASSWORD: 'senha'
       DEBUG: 'True'
   db:
-    image: laury/mapa-transportes-publicos:db-dev
+    image: laury/monibus:db-dev
     build:
       context: ./
       dockerfile: Dockerfile-db
