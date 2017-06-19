@@ -4,6 +4,9 @@
 # Reúna os arquivos estáticos na pasta static agora
 python manage.py collectstatic --noinput
 
+# Migre o banco de dados, se necessário
+python manage.py migrate
+
 # Inicie os processos do Gunicorn
 echo Iniciando o Gunicorn
 gunicorn mapa.wsgi:application \
