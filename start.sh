@@ -12,4 +12,5 @@ echo Iniciando o Gunicorn
 gunicorn mapa.wsgi:application \
     -k gevent \
     --bind 0.0.0.0:8000 \
-    --workers 16
+    --workers 16 \
+    --timeout 3600
