@@ -1,4 +1,5 @@
 db.sqlite3
 data
+static
 *.pyc
 __pycache__
