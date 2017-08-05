@@ -10,7 +10,7 @@ class RegistroViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         queryset = Registro.objects.all()
-        # import ipdb; ipdb.set_trace()
+
         data_gte = self.request.query_params.get('data_gte', None)
         if data_gte:
             queryset = queryset.filter(data__gte=data_gte)
