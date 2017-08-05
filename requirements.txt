@@ -1,13 +1,15 @@
-Django==1.11.1
-psycopg2==2.7.1
-gunicorn==19.7.1
-greenlet==0.4.12
-gevent==1.2.2
+Django~=1.11
+psycopg2~=2.7.1
+gunicorn~=19.7
+greenlet~=0.4
+gevent~=1.2
 
-Markdown==2.6.8
-django-filter==1.0.4
-djangorestframework==3.6.3
-djangorestframework-gis==0.11.2
+Markdown~=2.6
+django-filter~=1.0
+djangorestframework~=3.6
+djangorestframework-gis~=0.11
+
+requests~=2.17.3
 
 # Development tools
 ipdb
