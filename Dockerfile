@@ -7,6 +7,7 @@ RUN apt-get update \
         libgdal-dev \
         gdal-bin \
         python3-gdal \
+        # cron \
     && rm -rf /var/lib/apt/lists/*
 
 ENV CPLUS_INCLUDE_PATH /usr/include/gdal
@@ -18,6 +19,9 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+# RUN cat config/cron_observador >> /etc/crontab \
+#    && service cron start
 
 VOLUME /usr/src/app/static
 
