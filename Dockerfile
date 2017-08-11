@@ -24,7 +24,7 @@ COPY . .
 #    && service cron start
 
 # Reúna os arquivos estáticos na pasta static agora
-python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 
 VOLUME /usr/src/app/static
 
