@@ -23,6 +23,9 @@ COPY . .
 # RUN cat config/cron_observador >> /etc/crontab \
 #    && service cron start
 
+# Reúna os arquivos estáticos na pasta static agora
+python manage.py collectstatic --noinput
+
 VOLUME /usr/src/app/static
 
 EXPOSE 8000

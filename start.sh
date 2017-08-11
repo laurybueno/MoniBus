@@ -1,9 +1,6 @@
 #!/bin/bash
 # Apenas comandos para o ambiente de produção devem estar neste arquivo
 
-# Reúna os arquivos estáticos na pasta static agora
-python manage.py collectstatic --noinput
-
 # Migre o banco de dados, se necessário
 python manage.py migrate
 
