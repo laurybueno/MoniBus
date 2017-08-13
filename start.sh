@@ -10,4 +10,7 @@ gunicorn mapa.wsgi:application \
     -k gevent \
     --bind 0.0.0.0:8000 \
     --workers 16 \
+    --error-logfile=- \
+    --access-logfile=- \
+    --log-level debug \
     --timeout 3600
