@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.db import transaction
 from cronotacografo.models import Registro
 import json
 import os
@@ -8,7 +9,7 @@ import warnings
 
 
 class Command(BaseCommand):
-    help = 'Recebe dados geográficos de ônibus minuto a minuto da API Olho Vivo da SPTrans'
+    help = 'Recebe dados geográficos de ônibus da API Olho Vivo da SPTrans'
 
     url = 'http://api.olhovivo.sptrans.com.br/v2.1'
     s = requests.session()
@@ -24,6 +25,7 @@ class Command(BaseCommand):
         except Exception:
             return ''
 
+    @transaction.atomic
     def handle(self, *args, **options):
 
         self.renew_token()
