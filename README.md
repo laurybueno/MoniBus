@@ -17,9 +17,9 @@ Todas as informações disponibilizadas pela API MoniBus foram extraídas direta
 }
 ```
 
-Um script Python 3.5 é usado para receber dados minuto a minuto. A cada rodada de coleta de informações, quase 3 mil requisições são feitas em 30 threads e resolvidas, em média, em menos de 20 segundos.
+Inicialmente, um script Python 3.5 foi usado para receber dados minuto a minuto, o [Crawler-OlhoVivo](https://github.com/laurybueno/Crawler-OlhoVivo). Os arquivos JSON obtidos eram então importados pela plataforma Django.
 
-As informações obtidas são armazenadas em arquivos JSON da mesma forma como foram recebidas. A transformação dos dados para PostGIS fica a cargo da plataforma Django e será discutida na próxima seção.
+Atualmente, o processo todo é feito via Django e os dados são armazendos em um banco de dados PostGIS.
 
 ## Sobre os dados
 Uma amostra dos dados armazenados está disponível para análise exploratória [no CartoDB](https://laurybueno.carto.com/builder/0828ce18-ab57-4681-8655-2d6b0146818f/).
@@ -28,7 +28,7 @@ Uma amostra dos dados armazenados está disponível para análise exploratória 
 
 
 ## Dados via API
-O ponto de saída desses dados é o endereço https://monibus.laury.me/api/registro e o único método HTTP permitido para o público nele é GET. Os filtros disponíveis podem ser usados em conjunto ou separadamente e são eles:
+O ponto de saída desses dados é o endereço https://monibus.laury.me/api/registro pelo método HTTP GET. Os filtros disponíveis podem ser usados em conjunto ou separadamente e são eles:
 
 - “p”: código do veículo
 
