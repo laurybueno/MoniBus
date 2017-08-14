@@ -46,54 +46,6 @@ O ponto de saída desses dados é o endereço https://monibus.laury.me/api/regis
 
 Os dados retornados seguem a especificação aberta GeoJSON.
 
-## Dados coletados e faltantes
-Os procedimentos de coleta de dados começaram no dia 19 de abril e se encerraram com a consolidação das mudanças na API da SPTrans em 2 de junho. Nesse meio tempo, a coleta sofreu com alguns problemas técnicos, mas se manteve consistente na maior parte do período.
-
-A seguir, temos um relatório mais detalhado sobre os incidentes ocorridos:
-
-- 19 de abril
-  - primeiro lançamento (v0.1)
-  - ainda sem suporte multithread
-  - cada ciclo de download de dados demorava quase 6 minutos e tinha um intervalo de mais um minuto entre o fim de um ciclo e o começo de outro
-
-
-- 21 de abril
-  - houve alguns deploys de baixa qualidade e interrupções na captura de dados
-  - v0.2.2 se torna o software em execução e introduz um aumento muito grande na granularidade dos dados brutos. Cada rodada pelas linhas de ônibus dura menos de 20 segundos e cada início de rodada é separado por 60 segundos
-  - temos a partir desta versão o ritmo de coleta considerado ótimo no escopo deste trabalho
-
-
-- 24 de abril
-  - aproximadamente 24 horas de dados foram perdidas. A razão foi o esgotamento do limite de arquivos por pasta no sistema de arquivos do servidor
-
-
-- 26 de abril
-  - timeouts consecutivos derrubaram o serviço de coleta de dados, que não pôde se reestabelecer sozinho. A coleta foi reativada manualmente no dia 27
-
-
-- 29 de abril
-  - lançada versão v0.3
-  - sistema de subpastas com datas adicionado para impedir que a coleta seja bloqueada novamente por abuso do limite de arquivos por pasta, como aconteceu no dia 24
-
-
-- 4 de maio
-  - coletor de dados caiu por uma hora devido a dezenas de repetições do erro "Connection reset by peer" nas chamadas à API
-  - coleta foi restabelecida manualmente
-
-
-- 23 de maio
-  - esgotamento de inodes (por excesso de arquivos JSON armazenados)
-
-
-- 26 de maio
-  - coleta retomada às 11h20. Dados das primeiras duas semanas não puderam ser completamente recuperados
-
-
-- 2 de junho
-  - sistema de coleta ficou impossibilitado de funcionar devido a repetidas falhas para receber os códigos de linhas de ônibus da SPTrans. O erro, que persistiu por dias, pode ser atribuído ao lançamento da versão 2 da API
-  - a coletas de dados foi encerrada temporariamente nesse dia, pois a adaptação para a nova versão da API não poderia ser feita em tempo hábil para a entrega deste trabalho
-
-
 ## Contexto
 A malha de transporte público viário na cidade de São Paulo teve quase 3 bilhões de transportes de passageiros em 2016 e é operada exclusivamente por empresas privadas.
 
