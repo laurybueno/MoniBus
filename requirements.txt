@@ -1,5 +1,5 @@
 Django~=1.11
-psycopg2~=2.7.1
+psycopg2~=2.7
 gunicorn~=19.7
 greenlet~=0.4
 gevent~=1.2
@@ -9,7 +9,7 @@ django-filter~=1.0
 djangorestframework~=3.6
 djangorestframework-gis~=0.11
 
-requests~=2.17.3
+requests~=2.17
 
 # Development tools
 ipdb
